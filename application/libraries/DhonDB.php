@@ -37,7 +37,7 @@ Class DhonDB {
         return $this;
     }
 
-    public function default(string $value)
+    public function default($value)
     {
         $this->default = $value;
         return $this;
