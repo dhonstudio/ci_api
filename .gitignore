@@ -1,4 +1,6 @@
 .vscode
+application/config/database_prod.php
+
 .DS_Store
 
 application/cache/*
