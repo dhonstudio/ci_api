@@ -5,7 +5,8 @@ class Migration_Api {
     public function __construct()
 	{
         $this->migration =& get_instance();
-        $this->migration->load->library('dhondb');
+        require_once __DIR__ . '/../../assets/ci_libraries/DhonDB.php';
+		$this->migration->dhondb = new DhonDB;
     }
     
     public function up()

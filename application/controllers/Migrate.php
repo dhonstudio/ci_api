@@ -37,7 +37,8 @@ class Migrate extends CI_Controller
 
     public function index()
     {
-        $this->load->library('dhonDB');
+        require_once __DIR__ . '/../../assets/ci_libraries/DhonDB.php';
+		$this->dhondb = new DhonDB;
         
         $this->dhondb->version = 20220127090401;
         $this->dhondb->migrate('user');
