@@ -17,4 +17,12 @@ class Api extends CI_Controller {
 		$this->dhonjson->auth();
 		$this->dhonjson->collect();
 	}
+
+	public function delete(int $id)
+	{
+		require_once __DIR__ . '/../../assets/ci_libraries/DhonJSON.php';
+		$this->dhonjson = new DhonJSON;
+		$this->dhonjson->auth();
+		$this->dhonjson->delete($id);
+	}
 }
