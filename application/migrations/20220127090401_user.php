@@ -14,6 +14,7 @@ class Migration_User {
         $this->migration->dhondb->table = 'user';
         $this->migration->dhondb->ai()->field('id', 'INT');
         $this->migration->dhondb->constraint('255')->unique()->field('username', 'VARCHAR');
+        $this->migration->dhondb->constraint('200')->unique()->field('fullName', 'VARCHAR');
         $this->migration->dhondb->constraint('32')->field('auth_key', 'VARCHAR');
         $this->migration->dhondb->constraint('255')->field('password_hash', 'VARCHAR');
         $this->migration->dhondb->constraint('255')->unique()->default(null)->field('password_reset_token', 'VARCHAR', 'nullable');

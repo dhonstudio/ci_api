@@ -8,7 +8,7 @@ class Migrate extends CI_Controller
         if (!isset($_SERVER['PHP_AUTH_USER'])) {
             $this->unauthorized();
         } else {
-            $db_api   = $this->load->database('api', TRUE);
+            $db_api   = $this->load->database('project', TRUE);
             $user     = $db_api->get_where('api_users', ['username' => $_SERVER['PHP_AUTH_USER']])->row_array();
             
             if (!password_verify($_SERVER['PHP_AUTH_PW'], $user['password'])) {
@@ -41,7 +41,7 @@ class Migrate extends CI_Controller
 		$this->dhondb = new DhonDB;
         
         $this->dhondb->version = 20220127090401;
-        $this->dhondb->migrate('user');
+        $this->dhondb->migrate('api');
         $this->response         = 'Migration success';
         $this->json_response 	= ['response' => $this->response, 'status' => '200'];
         $this->send();
