@@ -5,6 +5,12 @@ class Migrate extends CI_Controller
     public function __construct()
 	{
 		parent::__construct();
+
+        /*
+        | -------------------------------------------------------------------
+        | Please disable this section until end of section if you are not yet have api_users table in u493229753_project db
+        | -------------------------------------------------------------------
+        */
         if (!isset($_SERVER['PHP_AUTH_USER'])) {
             $this->unauthorized();
         } else {
@@ -15,6 +21,11 @@ class Migrate extends CI_Controller
                 $this->unauthorized();
             }
         }
+        /*
+        | -------------------------------------------------------------------
+        | End of disable section
+        | -------------------------------------------------------------------
+        */
     }
     
     private function unauthorized()

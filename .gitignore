@@ -1,5 +1,5 @@
 .vscode
-application/config/database_prod.php
+application/config/production/database.php
 
 .DS_Store
 
