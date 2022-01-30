@@ -14,7 +14,7 @@ class Api extends CI_Controller {
 	{
 		require_once __DIR__ . '/../../assets/ci_libraries/DhonJSON.php';
 		$this->dhonjson = new DhonJSON;
-		$this->dhonjson->auth();
+		$this->dhonjson->auth('project');
 		$this->dhonjson->collect();
 	}
 }
