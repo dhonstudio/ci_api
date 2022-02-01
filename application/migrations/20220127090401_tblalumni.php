@@ -1,6 +1,6 @@
 <?php
 
-class Migration_Project {
+class Migration_Tblalumni {
 
     public function __construct()
 	{
