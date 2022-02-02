@@ -52,7 +52,7 @@ class Migrate extends CI_Controller
 		$this->dhondb = new DhonDB;
         
         $this->dhondb->version = 20220127090401;
-        $this->dhondb->migrate('user');
+        $this->dhondb->migrate('kesku');
         $this->response         = 'Migration success';
         $this->json_response 	= ['response' => $this->response, 'status' => '200'];
         $this->send();
