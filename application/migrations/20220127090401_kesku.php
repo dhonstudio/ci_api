@@ -19,6 +19,7 @@ class Migration_Kesku {
         $this->migration->dhondb->constraint('13,2')->default(0.00)->field('budgeted', 'DECIMAL');
         $this->migration->dhondb->constraint('2')->default(0)->field('periode', 'INT');
         $this->migration->dhondb->default(1)->field('is_active', 'INT');
+        $this->migration->dhondb->field('stamp', 'INT');
         $this->migration->dhondb->add_key('id_akun');
         $this->migration->dhondb->create_table();
 
