@@ -23,5 +23,16 @@ class Migration_Kesku {
         $this->migration->dhondb->add_key('id_akun');
         $this->migration->dhondb->create_table();
 
+        $this->migration->dhondb->table = 'kesku_trx';
+        $this->migration->dhondb->ai()->field('id_trx', 'INT');
+        $this->migration->dhondb->field('id_book', 'INT');
+        $this->migration->dhondb->default(0)->field('id_akun', 'INT');
+        $this->migration->dhondb->default(0)->field('to_akun', 'INT');
+        $this->migration->dhondb->constraint('500')->field('note', 'VARCHAR', 'nullable');
+        $this->migration->dhondb->constraint('13,2')->default(0.00)->field('debit', 'DECIMAL');
+        $this->migration->dhondb->constraint('13,2')->default(0.00)->field('kredit', 'DECIMAL');
+        $this->migration->dhondb->field('stamp', 'INT');
+        $this->migration->dhondb->add_key('id_trx');
+        $this->migration->dhondb->create_table();
     }
 }
