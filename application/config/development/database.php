@@ -4,7 +4,7 @@
 | -------------------------------------------------------------------
 | Create production/database.php on config folder, copy this section until the end of section, set your username, password, and the name of database (db), and set production in index.php if you want to live hosting anyway
 | -------------------------------------------------------------------
-| 
+| PROTOTYPE:
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -62,8 +62,8 @@ $db['project'] = array(
 
 include APPPATH . "config/production/database.php";
 
-foreach ($db as $key => $value) {
-	$value['username'] = 'root';
-	$value['password'] = '';
-	$db[$key] = $value;
+foreach ($db as $name => $set) {
+	$set['username'] = 'root';
+	$set['password'] = '';
+	$db[$name] = $set;
 }

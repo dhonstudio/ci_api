@@ -12,9 +12,13 @@ class Api extends CI_Controller {
 
 	public function index()
 	{
+		require_once __DIR__ . '/../../assets/ci_libraries/DhonAuth.php';
 		require_once __DIR__ . '/../../assets/ci_libraries/DhonJSON.php';
+		$this->dhonauth = new DhonAuth;
 		$this->dhonjson = new DhonJSON;
-		$this->dhonjson->auth('project');
+
+		// unset($_SERVER['PHP_AUTH_USER']);
+		$this->dhonauth->auth('project');
 		$this->dhonjson->collect();
 	}
 }

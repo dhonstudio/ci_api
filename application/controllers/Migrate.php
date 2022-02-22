@@ -6,55 +6,23 @@ class Migrate extends CI_Controller
 	{
 		parent::__construct();
 
-        /*
-        | -------------------------------------------------------------------
-        | Please disable this section until end of section if you are not yet have api_users table in u493229753_project db
-        | -------------------------------------------------------------------
-        */
-        if (!isset($_SERVER['PHP_AUTH_USER'])) {
-            $this->unauthorized();
-        } else {
-            $db_api   = $this->load->database('project', TRUE);
-            $user     = $db_api->get_where('api_users', ['username' => $_SERVER['PHP_AUTH_USER']])->row_array();
-            
-            if (!password_verify($_SERVER['PHP_AUTH_PW'], $user['password'])) {
-                $this->unauthorized();
-            }
-        }
-        /*
-        | -------------------------------------------------------------------
-        | End of disable section
-        | -------------------------------------------------------------------
-        */
-    }
-    
-    private function unauthorized()
-    {
-        header('WWW-Authenticate: Basic realm="My Realm"');
-        header('HTTP/1.0 401 Unauthorized');
-        $this->response         = 'unauthorized';
-        $this->json_response 	= ['response' => $this->response, 'status' => '401'];
-        $this->send();
-        exit;
-    }
+        require_once __DIR__ . '/../../assets/ci_libraries/DhonAuth.php';
+        require_once __DIR__ . '/../../assets/ci_libraries/DhonJSON.php';
+		$this->dhonauth     = new DhonAuth;
+		$this->dhonjson     = new DhonJSON;
 
-    private function send()
-    {
-        header('Content-Type: application/json');
-		header('Access-Control-Allow-Origin: *');
-
-        echo json_encode($this->json_response, JSON_NUMERIC_CHECK);
+        $this->dhonauth->auth('project');
     }
 
     public function index()
     {
-        require_once __DIR__ . '/../../assets/ci_libraries/DhonDB.php';
-		$this->dhondb = new DhonDB;
-        
-        $this->dhondb->version = 20220127090401;
-        $this->dhondb->migrate('kesku');
-        $this->response         = 'Migration success';
-        $this->json_response 	= ['response' => $this->response, 'status' => '200'];
-        $this->send();
+        require_once __DIR__ . '/../../assets/ci_libraries/DhonMigrate.php';
+        $this->dhonmigrate = new DhonMigrate('project');
+
+        $this->dhonmigrate->version = 20220127090401;
+        $this->dhonmigrate->migrate('api');
+        $response   = 'Migration success';
+        $status     = '200';
+        $this->dhonjson->send($response, $status);
     }
 }

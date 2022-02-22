@@ -2,11 +2,12 @@
 
 class Migration_User {
 
-    public function __construct()
+    public function __construct(string $database)
 	{
         $this->migration =& get_instance();
-        require_once __DIR__ . '/../../assets/ci_libraries/DhonDB.php';
-		$this->migration->dhondb = new DhonDB;
+        
+        require_once __DIR__ . '/../../assets/ci_libraries/DhonMigrate.php';
+		$this->migration->dhonmigrate = new DhonMigrate($database);
     }
     
     public function up()
