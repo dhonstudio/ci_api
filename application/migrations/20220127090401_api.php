@@ -22,4 +22,20 @@ class Migration_Api {
 
         $this->migration->dhonmigrate->insert(['username' => 'admin', 'password' => password_hash('admin', PASSWORD_DEFAULT)]);
     }
+
+    public function change()
+    {
+        $this->migration->dhonmigrate->table = 'api_users';
+        $this->migration->dhonmigrate->constraint('10')->field(['usernamed', 'usernamp'], 'VARCHAR');
+        // $this->migration->dhonmigrate->constraint('100')->field('usernames', 'VARCHAR');
+        // $this->migration->dhonmigrate->add_field();
+        $this->migration->dhonmigrate->change_field();
+    }
+
+    public function drop()
+    {
+        $this->migration->dhonmigrate->table = 'api_users';
+        $this->migration->dhonmigrate->drop_field('usernamed');
+        $this->migration->dhonmigrate->drop_field('usernames');
+    }
 }

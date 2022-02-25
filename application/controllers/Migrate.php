@@ -20,7 +20,7 @@ class Migrate extends CI_Controller
         $this->dhonmigrate = new DhonMigrate('project');
 
         $this->dhonmigrate->version = 20220127090401;
-        $this->dhonmigrate->migrate('api');
+        $this->dhonmigrate->migrate('api', 'change');
         $response   = 'Migration success';
         $status     = '200';
         $this->dhonjson->send($response, $status);
