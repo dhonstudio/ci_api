@@ -26,4 +26,17 @@ class Migration_User {
         $this->migration->dhondb->add_key('id');
         $this->migration->dhondb->create_table();
     }
+
+    public function change()
+    {
+        $this->migration->dhonmigrate->table = 'user_ci';
+        $this->migration->dhonmigrate->constraint('30')->field(['google_id', 'google_id'], 'INT');
+        // $this->migration->dhonmigrate->constraint('30')->field('google_id', 'VARCHAR');
+        // $this->migration->dhonmigrate->constraint('200')->field('google_name', 'VARCHAR');
+        // $this->migration->dhonmigrate->constraint('200')->field('google_picture', 'VARCHAR');
+        // $this->migration->dhonmigrate->constraint('20')->field('google_gender', 'VARCHAR');
+        // $this->migration->dhonmigrate->constraint('200')->field('google_link', 'VARCHAR');
+        // $this->migration->dhonmigrate->add_field();
+        $this->migration->dhonmigrate->change_field();
+    }
 }
