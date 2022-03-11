@@ -6,8 +6,10 @@ class Migration_Api {
 	{
         $this->migration =& get_instance();
         
+        $this->database = $database;
+        $this->dev      = false;
         require_once __DIR__ . '/../../assets/ci_libraries/DhonMigrate.php';
-		$this->migration->dhonmigrate = new DhonMigrate($database);
+		$this->migration->dhonmigrate = new DhonMigrate($this->database);
     }
     
     public function up()
@@ -21,21 +23,22 @@ class Migration_Api {
         $this->migration->dhonmigrate->create_table();
 
         $this->migration->dhonmigrate->insert(['username' => 'admin', 'password' => password_hash('admin', PASSWORD_DEFAULT)]);
+        
+        if ($this->dev == false) $this->_dev();
+    }
+
+    private function _dev()
+    {
+        $this->migration->dhonmigrate = new DhonMigrate($this->database.'_dev');
+        $this->dev = true;
+        $this->up();
     }
 
     public function change()
     {
-        $this->migration->dhonmigrate->table = 'api_users';
-        $this->migration->dhonmigrate->constraint('10')->field(['usernamed', 'usernamp'], 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('100')->field('usernames', 'VARCHAR');
-        // $this->migration->dhonmigrate->add_field();
-        $this->migration->dhonmigrate->change_field();
     }
 
     public function drop()
     {
-        $this->migration->dhonmigrate->table = 'api_users';
-        $this->migration->dhonmigrate->drop_field('usernamed');
-        $this->migration->dhonmigrate->drop_field('usernames');
     }
 }
