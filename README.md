@@ -22,3 +22,9 @@ git clone https://github.com/dhonstudio/ci_api.git
 assets/ci_libraries/        git clone https://github.com/dhonstudio/ci_libraries.git
 ```
 
+First Setup
+------------
+
+```
+git clone https://github.com/dhonstudio/ci_api.git
+```
