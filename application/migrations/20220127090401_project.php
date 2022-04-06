@@ -139,24 +139,24 @@ class Migration_Project {
         // $this->migration->dhonmigrate->add_key('id_item');
         // $this->migration->dhonmigrate->create_table();
 
-        /*
-        | -------------------------------------------------------------------
-        |  User Yii Table
-        | -------------------------------------------------------------------
-        */
-        $this->migration->dhonmigrate->table = 'user_yii';
-        $this->migration->dhonmigrate->ai()->field('id', 'INT');
-        $this->migration->dhonmigrate->constraint('255')->unique()->field('username', 'VARCHAR');
-        $this->migration->dhonmigrate->constraint('32')->field('auth_key', 'VARCHAR');
-        $this->migration->dhonmigrate->constraint('255')->field('password_hash', 'VARCHAR');
-        $this->migration->dhonmigrate->constraint('255')->unique()->default(null)->field('password_reset_token', 'VARCHAR', 'nullable');
-        $this->migration->dhonmigrate->constraint('255')->unique()->field('email', 'VARCHAR');
-        $this->migration->dhonmigrate->constraint('6')->default('10')->field('status', 'SMALLINT');
-        $this->migration->dhonmigrate->field('created_at', 'INT');
-        $this->migration->dhonmigrate->field('updated_at', 'INT');
-        $this->migration->dhonmigrate->constraint('255')->default(null)->field('verification_token', 'VARCHAR', 'nullable');
-        $this->migration->dhonmigrate->add_key('id');
-        $this->migration->dhonmigrate->create_table();
+        // /*
+        // | -------------------------------------------------------------------
+        // |  User Yii Table
+        // | -------------------------------------------------------------------
+        // */
+        // $this->migration->dhonmigrate->table = 'user_yii';
+        // $this->migration->dhonmigrate->ai()->field('id', 'INT');
+        // $this->migration->dhonmigrate->constraint('255')->unique()->field('username', 'VARCHAR');
+        // $this->migration->dhonmigrate->constraint('32')->field('auth_key', 'VARCHAR');
+        // $this->migration->dhonmigrate->constraint('255')->field('password_hash', 'VARCHAR');
+        // $this->migration->dhonmigrate->constraint('255')->unique()->default(null)->field('password_reset_token', 'VARCHAR', 'nullable');
+        // $this->migration->dhonmigrate->constraint('255')->unique()->field('email', 'VARCHAR');
+        // $this->migration->dhonmigrate->constraint('6')->default('10')->field('status', 'SMALLINT');
+        // $this->migration->dhonmigrate->field('created_at', 'INT');
+        // $this->migration->dhonmigrate->field('updated_at', 'INT');
+        // $this->migration->dhonmigrate->constraint('255')->default(null)->field('verification_token', 'VARCHAR', 'nullable');
+        // $this->migration->dhonmigrate->add_key('id');
+        // $this->migration->dhonmigrate->create_table();
 
         if ($this->dev == false) $this->_dev();
     }
