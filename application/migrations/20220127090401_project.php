@@ -5,10 +5,12 @@ class Migration_Project {
     public function __construct(string $database)
 	{
         $this->migration =& get_instance();
+
+        $this->migration->load->helper('libraries');
         
         $this->database = $database;
         $this->dev      = false;
-        require_once __DIR__ . '/../../assets/ci_libraries/DhonMigrate.php';
+
 		$this->migration->dhonmigrate = new DhonMigrate($this->database);
     }
     
