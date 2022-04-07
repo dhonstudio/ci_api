@@ -160,7 +160,7 @@ class Migration_Project {
         // $this->migration->dhonmigrate->add_key('id');
         // $this->migration->dhonmigrate->create_table();
 
-        if ($this->dev == false) $this->_dev();
+        if (ENVIRONMENT != 'development') if ($this->dev == false) $this->_dev();
     }
 
     private function _dev()
