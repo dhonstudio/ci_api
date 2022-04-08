@@ -7,6 +7,7 @@ class Migration_Project {
         $this->migration =& get_instance();
 
         $this->migration->load->helper('libraries');
+        $this->migration->load->helper('string');
         
         $this->database = $database;
         $this->dev      = false;
@@ -61,25 +62,27 @@ class Migration_Project {
         // $this->migration->dhonmigrate->add_key('id_trx');
         // $this->migration->dhonmigrate->create_table();
 
-        // /*
-        // | -------------------------------------------------------------------
-        // |  Tbl_alumni table
-        // | -------------------------------------------------------------------
-        // */
-        // $this->migration->dhonmigrate->table = 'tbl_alumni';
-        // $this->migration->dhonmigrate->ai()->field('id_alumni', 'INT');
-        // $this->migration->dhonmigrate->constraint('200')->field('fullName', 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('100')->field('email', 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('50')->field('phone', 'VARCHAR');
-        // $this->migration->dhonmigrate->field('stamp', 'INT');
-        // $this->migration->dhonmigrate->add_key('id_alumni');
-        // $this->migration->dhonmigrate->create_table();
+        /*
+        | -------------------------------------------------------------------
+        |  Tbl_alumni table
+        | -------------------------------------------------------------------
+        */
+        $this->migration->dhonmigrate->table = 'tbl_alumni';
+        $this->migration->dhonmigrate->ai()->field('id_alumni', 'INT');
+        $this->migration->dhonmigrate->constraint('200')->field('fullName', 'VARCHAR');
+        $this->migration->dhonmigrate->constraint('100')->field('email', 'VARCHAR');
+        $this->migration->dhonmigrate->constraint('50')->field('phone', 'VARCHAR');
+        $this->migration->dhonmigrate->field('stamp', 'INT');
+        $this->migration->dhonmigrate->add_key('id_alumni');
+        $this->migration->dhonmigrate->create_table('force');
 
-        // $this->migration->dhonmigrate->insert(['fullName' => 'Muhammad Ramadhon', 'email' => 'muhammad_r@email.com', 'phone' => '62812345678']);
-        // $this->migration->dhonmigrate->insert(['fullName' => 'Muhammad Ibrahim', 'email' => 'm_ibrahim@email.com', 'phone' => '628156789012']);
-        // $this->migration->dhonmigrate->insert(['fullName' => 'Shireen Haura', 'email' => 'shireen_h@email.com', 'phone' => '628116789022']);
-        // $this->migration->dhonmigrate->insert(['fullName' => 'Intan Yanti', 'email' => 'intan_y@email.com', 'phone' => '628218901233']);
-        // $this->migration->dhonmigrate->insert(['fullName' => 'Rikpan Maulana', 'email' => 'rmaulana@email.com', 'phone' => '628111223456']);
+        $this->migration->dhonmigrate->insert(['fullName' => 'Muhammad Ramadhon', 'email' => 'muhammad_r@email.com', 'phone' => '62812345678']);
+        $this->migration->dhonmigrate->insert(['fullName' => 'Muhammad Ibrahim', 'email' => 'm_ibrahim@email.com', 'phone' => '628156789012']);
+        $this->migration->dhonmigrate->insert(['fullName' => 'Shireen Haura', 'email' => 'shireen_h@email.com', 'phone' => '628116789022']);
+        $this->migration->dhonmigrate->insert(['fullName' => 'Intan Yanti', 'email' => 'intan_y@email.com', 'phone' => '628218901233']);
+        $this->migration->dhonmigrate->insert(['fullName' => 'Rikpan Maulana', 'email' => 'rmaulana@email.com', 'phone' => '628111223456']);
+        $this->migration->dhonmigrate->insert(['fullName' => 'Informasi Lebih Lanjut', 'email' => 'Kunjungi link: https://dhonstudio.com/redirect/index/api', 'phone' => '6287700889913']);
+        $this->migration->dhonmigrate->insert(['fullName' => 'Informasi Lebih Lanjut', 'email' => 'Github URL: https://github.com/dhonstudio/ci_api_standard.git', 'phone' => '6287700889913']);
 
         // /*
         // | -------------------------------------------------------------------
@@ -107,6 +110,14 @@ class Migration_Project {
         // $this->migration->dhonmigrate->constraint('200')->field('fb_picture', 'VARCHAR', 'nullable');
         // $this->migration->dhonmigrate->add_key('id');
         // $this->migration->dhonmigrate->create_table();
+
+        // $this->migration->dhonmigrate->insert([
+        //     'email' => 'admin', 
+        //     'fullName' => 'Admin',
+        //     'auth_key' => random_string('alnum', 32), 
+        //     'password_hash' => password_hash('admin', PASSWORD_DEFAULT),
+        //     'created_at' => time()
+        // ]);
 
         // $this->migration->dhonmigrate->table = 'user_device';
         // $this->migration->dhonmigrate->ai()->field('id', 'INT');
