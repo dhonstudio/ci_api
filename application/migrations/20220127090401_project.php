@@ -89,7 +89,7 @@ class Migration_Project {
         // |  User table
         // | -------------------------------------------------------------------
         // */
-        // $this->migration->dhonmigrate->table = 'user_ci';
+        $this->migration->dhonmigrate->table = 'user_ci';
         // $this->migration->dhonmigrate->ai()->field('id', 'INT');
         // $this->migration->dhonmigrate->constraint('255')->unique()->field('email', 'VARCHAR');
         // $this->migration->dhonmigrate->constraint('200')->field('fullName', 'VARCHAR');
@@ -111,13 +111,14 @@ class Migration_Project {
         // $this->migration->dhonmigrate->add_key('id');
         // $this->migration->dhonmigrate->create_table();
 
-        // $this->migration->dhonmigrate->insert([
-        //     'email' => 'admin', 
-        //     'fullName' => 'Admin',
-        //     'auth_key' => random_string('alnum', 32), 
-        //     'password_hash' => password_hash('admin', PASSWORD_DEFAULT),
-        //     'created_at' => time()
-        // ]);
+        $this->migration->dhonmigrate->insert([
+            'email' => 'admin', 
+            'fullName' => 'Admin',
+            'auth_key' => random_string('alnum', 32), 
+            'password_hash' => password_hash('admin', PASSWORD_DEFAULT),
+            'status' => 19,
+            'created_at' => time()
+        ]);
 
         // $this->migration->dhonmigrate->table = 'user_device';
         // $this->migration->dhonmigrate->ai()->field('id', 'INT');
